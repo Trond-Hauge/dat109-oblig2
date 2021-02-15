@@ -1,5 +1,5 @@
 package no.utleiesystem.bilutleie;
 
-public class utleiekontor {
+public class Utleiekontor {
     
 }
