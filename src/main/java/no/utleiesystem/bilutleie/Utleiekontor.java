@@ -1,9 +1,6 @@
 package no.utleiesystem.bilutleie;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Utleiekontor {
@@ -22,6 +19,9 @@ public class Utleiekontor {
         this.poststed = poststed;
         this.tlf = tlf;
     }
+
+    @OneToMany
+    private Bil bil;
 
 
     
