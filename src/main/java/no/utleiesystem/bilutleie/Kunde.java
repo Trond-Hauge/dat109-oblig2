@@ -5,14 +5,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity(name = "Kunde")
-@Table(name = "Kunde", schema = "oblig2")
-
+@Entity
 public class Kunde implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
@@ -22,11 +17,8 @@ public class Kunde implements Serializable {
 		private String etternavn;
 		private String kredittkort;
 		
-		@ManyToOne
-		@JoinColumn(name = "adresse")
-		private Adresse adresse;
 		
-		@OneToMany(mappedBy = "utleie")
+		@ManyToOne
 		private List<Utleie> utleie;
 		
 		
@@ -34,14 +26,45 @@ public class Kunde implements Serializable {
 			
 		}
 		
-		public Kunde(String tlf, String fornavn, String etternavn, Adresse adresse, String kredittkort) {
+		public Kunde(String tlf, String fornavn, String etternavn, String kredittkort) {
 			this.tlf = tlf;
 			this.fornavn = fornavn;
 			this.etternavn = etternavn;
-			this.adresse = adresse;
 			this.kredittkort = kredittkort;
 		}
 		
+		public String getFornavn() {
+			return fornavn;
+		}
+
+		public void setFornavn(String fornavn) {
+			this.fornavn = fornavn;
+		}
+
+		public String getEtternavn() {
+			return etternavn;
+		}
+
+		public void setEtternavn(String etternavn) {
+			this.etternavn = etternavn;
+		}
+
+		public String getKredittkort() {
+			return kredittkort;
+		}
+
+		public void setKredittkort(String kredittkort) {
+			this.kredittkort = kredittkort;
+		}
+
+		public List<Utleie> getUtleie() {
+			return utleie;
+		}
+
+		public void setUtleie(List<Utleie> utleie) {
+			this.utleie = utleie;
+		}
+
 		public String getTlf() {
 			return this.tlf;
 		}
@@ -50,6 +73,4 @@ public class Kunde implements Serializable {
 			this.tlf = tlf;
 		}
 		
-		
-    
 }
