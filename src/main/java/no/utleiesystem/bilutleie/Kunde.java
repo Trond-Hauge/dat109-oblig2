@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,6 +14,7 @@ public class Kunde implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private String tlf;
 		private String fornavn;
 		private String etternavn;
@@ -57,14 +60,6 @@ public class Kunde implements Serializable {
 			this.kredittkort = kredittkort;
 		}
 
-		public List<Utleie> getUtleie() {
-			return utleie;
-		}
-
-		public void setUtleie(List<Utleie> utleie) {
-			this.utleie = utleie;
-		}
-
 		public String getTlf() {
 			return this.tlf;
 		}
@@ -73,4 +68,25 @@ public class Kunde implements Serializable {
 			this.tlf = tlf;
 		}
 		
+		public List<Utleie> getUtleie() {
+			return this.utleie;
+		}
+
+		public void setUtleie(List<Utleie> utleie) {
+			this.utleie = utleie;
+		}
+		
+		public Utleie addUtleie(Utleie utleie) {
+			getUtleie().add(utleie);
+			utleie.setKunde(null);
+			
+			return utleie;
+		}
+		
+		public Utleie removeUtleie(Utleie utleie) {
+			getUtleie().remove(utleie);
+			utleie.setKunde(null);
+			
+			return utleie;
+		}
 }
