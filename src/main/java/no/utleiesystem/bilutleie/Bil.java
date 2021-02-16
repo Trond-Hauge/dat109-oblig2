@@ -1,7 +1,11 @@
 package no.utleiesystem.bilutleie;
 
-public class Bil {
+import javax.persistence.*;
 
+@Entity
+public class Bil implements Serializable {
+
+    @Id
     private String regNummer; 
 
     private String merke; 
@@ -12,7 +16,18 @@ public class Bil {
 
     private boolean ledig; 
 
-    private char utleiegruppe; 
+    private char utleiegruppe;
+
+
+    @ManyToOne
+    private Utleiekontor utleiekontor;
+
+
+    public void setRegistreringsNr(String regNummer){
+        this.regNummer = regNummer;
+    }
+
+
 
 
 
