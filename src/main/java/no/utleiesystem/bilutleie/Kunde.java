@@ -49,5 +49,7 @@ public class Kunde implements Serializable {
 		public void setTlf(String tlf) {
 			this.tlf = tlf;
 		}
+		
+		
     
 }
