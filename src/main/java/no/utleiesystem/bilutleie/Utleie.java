@@ -1,7 +1,7 @@
 package no.utleiesystem.bilutleie;
 
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import javax.persistence.*;
 
 @Entity
