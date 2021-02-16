@@ -1,7 +1,9 @@
 package no.utleiesystem.bilutleie;
 
-public class Bil {
+@Entity
+public class Bil implements Serializable {
 
+    @id
     private String regNummer; 
 
     private String merke; 
@@ -13,6 +15,17 @@ public class Bil {
     private boolean ledig; 
 
     private char utleiegruppe; 
+
+
+    @ManyToOne
+    private utleiekontor utleiekontor;
+
+
+    public void setRegistreringsNr(String regNummer){
+        this.regNummer = regNummer;
+    }
+
+
 
 
 
