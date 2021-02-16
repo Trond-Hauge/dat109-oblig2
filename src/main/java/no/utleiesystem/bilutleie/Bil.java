@@ -3,12 +3,13 @@ package no.utleiesystem.bilutleie;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 public class Bil implements Serializable {
 
     @Id
-    private String regNummer; 
+    private String regNummer;
 
     private String merke; 
 
