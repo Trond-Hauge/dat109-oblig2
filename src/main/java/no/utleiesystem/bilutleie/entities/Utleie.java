@@ -1,4 +1,4 @@
-package no.utleiesystem.bilutleie;
+package no.utleiesystem.bilutleie.entities;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
