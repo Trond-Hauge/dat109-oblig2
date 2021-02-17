@@ -1,9 +1,7 @@
-package no.utleiesystem.bilutleie;
+package no.utleiesystem.bilutleie.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 public class Bil implements Serializable {

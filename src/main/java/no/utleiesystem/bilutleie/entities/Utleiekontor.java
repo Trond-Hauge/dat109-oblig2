@@ -1,4 +1,4 @@
-package no.utleiesystem.bilutleie;
+package no.utleiesystem.bilutleie.entities;
 
 import javax.persistence.*;
 
