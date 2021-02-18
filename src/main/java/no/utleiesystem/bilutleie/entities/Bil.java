@@ -1,11 +1,10 @@
 package no.utleiesystem.bilutleie.entities;
 
-import java.io.Serializable;
 import javax.persistence.*;
 
+
 @Entity
-public class Bil implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Bil {
 
     @Id
     private String regNummer;
