@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
  
      
-    @RequestMapping("/Registrering")
-    public String viewPage() {
+    @RequestMapping("/")
+    public String index() {
         return "index";
     }
 }
