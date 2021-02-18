@@ -6,10 +6,10 @@ CREATE TABLE bil (
         modell VARCHAR (15),
         ledig BOOL,
         utleiegruppe CHAR (1),
-        kilometerstand INTEGER (100),
+        kilometerstand int,
 
         PRIMARY KEY (regNummer),
-        FOREIGN KEY (???) REFERENCES Utleiekontor(???) 
+        FOREIGN KEY (nummer) REFERENCES Utleiekontor
 );
 
 CREATE TABLE utleiekontor (
@@ -32,8 +32,3 @@ CREATE TABLE Kunde (
         kredittkort INTEGER (16),
         PRIMARY KEY (tlf)
 );
-
-
-
- 
-   
