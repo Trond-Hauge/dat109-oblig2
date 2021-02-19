@@ -1,13 +1,11 @@
 package no.utleiesystem.bilutleie.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Kunde implements Serializable {
@@ -18,12 +16,7 @@ public class Kunde implements Serializable {
 		private String tlf;
 		private String fornavn;
 		private String etternavn;
-		private String kredittkort;
-		
-		
-		//@ManyToOne
-		//private List<Utleie> utleie;
-		
+		private String kredittkort;		
 		
 		public Kunde() {
 			
