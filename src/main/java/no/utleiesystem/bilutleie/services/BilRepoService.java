@@ -28,8 +28,8 @@ public class BilRepoService {
     }*/
     
     // lag flere av denne metoden, med samme navn, bare med ulike parametere
-    public List<Bil> finnBiler(char utleiegruppe) {
-        return bilRepo.finnBilerEtterGruppe(utleiegruppe);
-    }
+    //public List<Bil> finnBiler(char utleiegruppe) {
+    //    return bilRepo.finnBilerEtterGruppe(utleiegruppe);
+    //}
 
 }

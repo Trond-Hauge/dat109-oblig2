@@ -13,8 +13,9 @@ public class Utleiekontor {
     private String poststed;
     private int tlf;
 
-    @OneToMany
-    private Bil bil;
+    //@OneToMany
+    //@JoinColumn(name = "regNummer")
+    //private Bil bil;
 
     /**
      * Konstruktør for klassen Utleiekontor.
@@ -29,54 +30,6 @@ public class Utleiekontor {
         this.postnummer = postnummer;
         this.poststed = poststed;
         this.tlf = tlf;
-    }
-
-    public int getNummer() {
-        return this.nummer;
-    }
-
-    public void setNummer(int nummer) {
-        this.nummer = nummer;
-    }
-
-    public String getGateadresse() {
-        return this.gateadresse;
-    }
-
-    public void setGateadresse(String gateadresse) {
-        this.gateadresse = gateadresse;
-    }
-
-    public String getPostnummer() {
-        return this.postnummer;
-    }
-
-    public void setPostnummer(String postnummer) {
-        this.postnummer = postnummer;
-    }
-
-    public String getPoststed() {
-        return this.poststed;
-    }
-
-    public void setPoststed(String poststed) {
-        this.poststed = poststed;
-    }
-
-    public int getTlf() {
-        return this.tlf;
-    }
-
-    public void setTlf(int tlf) {
-        this.tlf = tlf;
-    }
-
-    public Bil getBil() {
-        return this.bil;
-    }
-
-    public void setBil(Bil bil) {
-        this.bil = bil;
     }
 
 

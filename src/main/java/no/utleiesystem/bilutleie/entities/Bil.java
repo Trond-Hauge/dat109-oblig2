@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(schema = "bilutleie", name = "bil")
 public class Bil {
 
     @Id
@@ -15,9 +16,12 @@ public class Bil {
     private char utleiegruppe;
     private int kilometerstand;
 
-    @ManyToOne
+    /*
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "nummer")
     private Utleiekontor utleiekontor;
 
+    */
     //Notat: Merke og utleiegruppe kan vurderes å gjøres til ENUM
 
     /**
@@ -35,74 +39,6 @@ public class Bil {
         this.modell = modell;
         this.farge = farge;
         this.utleiegruppe = utleiegruppe;
-        this.kilometerstand = kilometerstand;
-    }
-
-    public String getRegNummer() {
-        return this.regNummer;
-    }
-
-    public void setRegNummer(String regNummer) {
-        this.regNummer = regNummer;
-    }
-
-    public String getMerke() {
-        return this.merke;
-    }
-
-    public void setMerke(String merke) {
-        this.merke = merke;
-    }
-
-    public String getModell() {
-        return this.modell;
-    }
-
-    public void setModell(String modell) {
-        this.modell = modell;
-    }
-
-    public String getFarge() {
-        return this.farge;
-    }
-
-    public void setFarge(String farge) {
-        this.farge = farge;
-    }
-
-    public boolean isLedig() {
-        return this.ledig;
-    }
-
-    public boolean getLedig() {
-        return this.ledig;
-    }
-
-    public void setLedig(boolean ledig) {
-        this.ledig = ledig;
-    }
-
-    public char getUtleiegruppe() {
-        return this.utleiegruppe;
-    }
-
-    public void setUtleiegruppe(char utleiegruppe) {
-        this.utleiegruppe = utleiegruppe;
-    }
-
-    public Utleiekontor getUtleiekontor() {
-        return this.utleiekontor;
-    }
-
-    public void setUtleiekontor(Utleiekontor utleiekontor) {
-        this.utleiekontor = utleiekontor;
-    }
-
-    public int getKilometerstand() {
-        return this.kilometerstand;
-    }
-
-    public void setKilometerstand(int kilometerstand) {
         this.kilometerstand = kilometerstand;
     }
 
