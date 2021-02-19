@@ -9,13 +9,9 @@ public class Utleiekontor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nummer;
     private String gateadresse;
-    private String postnummer;
+    private int postnummer; //kan vurderes å gjøres til String
     private String poststed;
     private int tlf;
-
-    //@OneToMany
-    //@JoinColumn(name = "regNummer")
-    //private Bil bil;
 
     /**
      * Konstruktør for klassen Utleiekontor.
@@ -25,7 +21,7 @@ public class Utleiekontor {
      * @param poststed
      * @param tlf
      */
-    public Utleiekontor(String gateadresse, String postnummer, String poststed, int tlf){
+    public Utleiekontor(String gateadresse, int postnummer, String poststed, int tlf){
         this.gateadresse = gateadresse;
         this.postnummer = postnummer;
         this.poststed = poststed;

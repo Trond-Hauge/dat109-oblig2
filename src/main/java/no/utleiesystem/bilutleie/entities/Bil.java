@@ -16,12 +16,10 @@ public class Bil {
     private char utleiegruppe;
     private int kilometerstand;
 
-    /*
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "nummer")
+    
+    @ManyToOne
     private Utleiekontor utleiekontor;
 
-    */
     //Notat: Merke og utleiegruppe kan vurderes å gjøres til ENUM
 
     /**

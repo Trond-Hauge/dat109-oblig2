@@ -9,9 +9,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootApplication
 public class BilutleieApplication implements CommandLineRunner {
 
+	//trengs det?
 	@Autowired
 	private JdbcTemplate jdbcT;
 
+	//trengs det?
 	@Override
 	public void run(String ... args) throws Exception{
 	}
