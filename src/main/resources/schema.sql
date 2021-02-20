@@ -6,7 +6,7 @@ DROP Table IF EXISTS kunde;
 DROP TABLE IF EXISTS utleiekontor;
 CREATE TABLE utleiekontor (
         nummer INTEGER,
-        gateadresse VARCHAR (15),
+        gateadresse VARCHAR (32),
         postnummer INTEGER,
         poststed VARCHAR (15),
         tlf int,
@@ -31,3 +31,6 @@ CREATE TABLE kunde (
         kredittkort int,
         PRIMARY KEY (tlf)
 );
+
+INSERT INTO Utleiekontor VALUES
+        ('1', 'Huttiheitaveien', '5052', 'Bergen', '19996661');

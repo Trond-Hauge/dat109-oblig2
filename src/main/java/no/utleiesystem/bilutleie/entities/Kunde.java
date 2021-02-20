@@ -16,7 +16,7 @@ public class Kunde implements Serializable {
 		private String tlf;
 		private String fornavn;
 		private String etternavn;
-		private String kredittkort;		
+		private String kredittkort;
 		
 		public Kunde() {
 			
