@@ -1,7 +1,11 @@
 package no.utleiesystem.bilutleie.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import no.utleiesystem.bilutleie.entities.Kunde;
 
 @Controller
 public class AppController {
@@ -16,6 +20,13 @@ public class AppController {
         //la eksisterende kunde logge inn
 
     //registrering
+    @GetMapping("/Registrer")
+    public String visNyAnsatt(Model model){
+        // bruker model for å binde form data
+        Kunde kunde = new Kunde();
+        model.addAttribute("kunde", kunde);
+        return "ny_kunde";
+    }
         //generering av kunde
 
     //Bekreftelse av form i index går videre til valg av tilgjengelige biler.
