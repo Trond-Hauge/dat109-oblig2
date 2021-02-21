@@ -33,4 +33,9 @@ CREATE TABLE kunde (
 );
 
 INSERT INTO Utleiekontor VALUES
-        ('1', 'Huttiheitaveien', '5052', 'Bergen', '19996661');
+        ('1', 'Huttiheitaveien', '5052', 'Bergen', '19996661'),
+        ('2', 'Skrullerudveien', '1189', 'Oslo', '22225555');
+
+INSERT INTO Bil VALUES
+        ('BM19551', 'BMW', 'Isetta', 'Bavarian Blue', 'true', 'A', '10000', '1'),
+        ('FR19951', 'Ferrari', '456', 'Rosso Fiorano', 'true', 'C', '197000','1');

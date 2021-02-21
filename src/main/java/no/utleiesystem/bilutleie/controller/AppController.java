@@ -9,25 +9,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import no.utleiesystem.bilutleie.entities.Kunde;
-import no.utleiesystem.bilutleie.services.KundeService;
+import no.utleiesystem.bilutleie.services.*;
 
 @Controller
 public class AppController {
 
     @Autowired
     private KundeService kundeService;
-
  
-     //index bør ha med billeien å gjøre
+    @Autowired
+    private UtleiekontorService uService;
+
     @RequestMapping("/")
-    public String index() {
+    public String getAlleUtleiekontor(Model model){
+        model.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
         return "index";
     }
 
     //login
         //la eksisterende kunde logge inn
 
-        // Knapp som viser til Registrering i logg inn. 
+        // Knapp som viser til Registrering i logg inn... Nødvendig?? 
 
     // Registrering
     @GetMapping("/Registrering")

@@ -3,14 +3,21 @@
 
 <head>
     <meta charset="ISO-8859-1">
+    <link th:href="@{/styles/sitewide.css}" rel="stylesheet" />
     <title>Welcome to CodeJava Home</title>
 
 </head>
 
 <body>
     <div class="container text-center">
-        <h1> Welcome </h1>
+        <h1>Absurde Biler</h1>
+    </div>
+    <div class="form-utleiekontor">
+        <select th:field="*{alleKontor}">
+            <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}" />
+        </select>
 
+        <!-- Når denne endres, må det gjøres en redirect til seg selv, der bilutvalget oppdateres, og hentested beholdes. -->
     </div>
 
 </body>

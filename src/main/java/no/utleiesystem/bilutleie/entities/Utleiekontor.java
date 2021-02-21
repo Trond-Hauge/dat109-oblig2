@@ -28,5 +28,50 @@ public class Utleiekontor {
         this.tlf = tlf;
     }
 
+    public Utleiekontor(){
+
+    }
+
+    public int getNummer() {
+        return this.nummer;
+    }
+
+    public void setNummer(int nummer) {
+        this.nummer = nummer;
+    }
+
+    public String getGateadresse() {
+        return this.gateadresse;
+    }
+
+    public void setGateadresse(String gateadresse) {
+        this.gateadresse = gateadresse;
+    }
+
+    public int getPostnummer() {
+        return this.postnummer;
+    }
+
+    public void setPostnummer(int postnummer) {
+        this.postnummer = postnummer;
+    }
+
+    public String getPoststed() {
+        return this.poststed;
+    }
+
+    public void setPoststed(String poststed) {
+        this.poststed = poststed;
+    }
+
+    public int getTlf() {
+        return this.tlf;
+    }
+
+    public void setTlf(int tlf) {
+        this.tlf = tlf;
+    }
+
+
 
 }
