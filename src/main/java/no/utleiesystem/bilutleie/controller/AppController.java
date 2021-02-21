@@ -19,8 +19,8 @@ public class AppController {
     //login
         //la eksisterende kunde logge inn
 
-    //registrering
-    @GetMapping("/Registrer")
+    // Registrering
+    @GetMapping("/Registrering")
     public String visNyAnsatt(Model model){
         // bruker model for å binde form data
         Kunde kunde = new Kunde();
