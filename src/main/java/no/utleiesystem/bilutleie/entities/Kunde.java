@@ -6,28 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
-@Table(name="kunde")
 @Entity
 public class Kunde implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private long id; 
-		private int tlf;
+		private String tlf;
 		private String fornavn;
 		private String etternavn;
 		private int kredittkort;
+
+	
 		
 		public Kunde() {
 			
 		}
 		
-		public Kunde(long id, int tlf, String fornavn, String etternavn, int kredittkort) {
-			this.id = id; 
+		public Kunde(String tlf, String fornavn, String etternavn, int kredittkort) {
+		
 			this.tlf = tlf;
 			this.fornavn = fornavn;
 			this.etternavn = etternavn;
@@ -35,12 +33,12 @@ public class Kunde implements Serializable {
 		}
 
 
-	public int getTlf() {
+	public String getTlf() {
 		return this.tlf;
 	}
 
-	public void setTlf(int i) {
-		this.tlf = i;
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
 	}
 
 	public String getFornavn() {
@@ -66,13 +64,14 @@ public class Kunde implements Serializable {
 	public void setKredittkort(int kredittkort) {
 		this.kredittkort = kredittkort;
 	}
-
-	public long getId() {
-		return this.id;
+		@Override
+		public String toString() {
+		return "{" +
+			" tlf='" + getTlf() + "'" +
+			", fornavn='" + getFornavn() + "'" +
+			", etternavn='" + getEtternavn() + "'" +
+			", kredittkort='" + getKredittkort() + "'" +
+			"}";
+	}
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
-}
