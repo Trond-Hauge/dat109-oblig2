@@ -22,18 +22,21 @@ public class AppController {
     @Autowired
     private BilService bilService;
 
+    private Utleiekontor hentested;
+
     @GetMapping("/")
     public String getAlleUtleiekontor(ModelMap map){
         Utleie utleie = new Utleie();
         map.addAttribute("utleie", utleie);
         map.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
+        map.addAttribute("biler", bilService.hentBilerEtterUtleiekontor(hentested));
         return "index";
     }
 
     @PostMapping("/")
     public String getAlleUtleiekontor(@ModelAttribute("utleie") Utleie utleie){
         //For kontroll av hva som skjer under testing
-        System.out.println(bilService.hentBilerEtterUtleiekontor(utleie.getHentested()));
+        hentested = utleie.getHentested();
         return "redirect:/";
     }
 

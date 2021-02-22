@@ -10,7 +10,7 @@
 
 <body>
     <div class="container text-center">
-        <h1>Absurde Biler</h1>
+        <h1>Absurd Bilutleie</h1>
     </div>
     
     <div class="form-utleiesteder">
@@ -27,10 +27,10 @@
             </label>
             <button type="submit">Bekreft</button>
         </form>
-        <!--
-        <form th:field="utleie.bil">
-            <div th:each=""><input type="radio"><label></label></div>
-        </form>-->
+        <form th:field="utleie.bil" th:if="${biler != null}">
+            <!--Fiks det slik at man kun kan velge én -- Se også på å få dette i en tabell-->
+            <div th:each="bil : ${biler}"><input type="radio"><label th:text="${bil.toString()}"></label></div>
+        </form>
     </div>
 
 </body>
