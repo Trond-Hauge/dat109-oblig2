@@ -28,4 +28,38 @@ public class Kunde implements Serializable {
 			this.etternavn = etternavn;
 			this.kredittkort = kredittkort;
 		}
+
+
+	public String getTlf() {
+		return this.tlf;
+	}
+
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
+	}
+
+	public String getFornavn() {
+		return this.fornavn;
+	}
+
+	public void setFornavn(String fornavn) {
+		this.fornavn = fornavn;
+	}
+
+	public String getEtternavn() {
+		return this.etternavn;
+	}
+
+	public void setEtternavn(String etternavn) {
+		this.etternavn = etternavn;
+	}
+
+	public String getKredittkort() {
+		return this.kredittkort;
+	}
+
+	public void setKredittkort(String kredittkort) {
+		this.kredittkort = kredittkort;
+	}
+
 }

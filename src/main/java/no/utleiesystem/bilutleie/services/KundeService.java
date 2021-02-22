@@ -1,12 +1,17 @@
 package no.utleiesystem.bilutleie.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import no.utleiesystem.bilutleie.entities.Kunde;
+import no.utleiesystem.bilutleie.repositories.KundeRepository;
 
-public interface KundeService {
+@Service
+public class KundeService {
 
-    // Lagrer kunden 
-    void saveKunde(Kunde kunde);
-
+    @Autowired
+	private KundeRepository kundeRepository;
     
-    
+    public void saveKunde(Kunde kunde) {
+    this.kundeRepository.save(kunde);
+    }
 }

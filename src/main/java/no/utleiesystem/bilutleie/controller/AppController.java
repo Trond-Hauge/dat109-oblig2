@@ -35,7 +35,6 @@ public class AppController {
 
     @PostMapping("/")
     public String getAlleUtleiekontor(@ModelAttribute("utleie") Utleie utleie){
-        //For kontroll av hva som skjer under testing
         hentested = utleie.getHentested();
         return "redirect:/";
     }
@@ -46,7 +45,7 @@ public class AppController {
         // Knapp som viser til Registrering i logg inn... Nødvendig?? 
 
     // Registrering
-    @GetMapping("/Registrering")
+    @GetMapping("/registrering")
     public String visNyAnsatt(Model model){
         // bruker model for å binde form data
         Kunde kunde = new Kunde();
@@ -54,7 +53,7 @@ public class AppController {
         return "ny_kunde";
     }
 
-    @PostMapping("/lagreKunde")
+    @PostMapping("/lagre-kunde")
     public String lagreAnsatt(@ModelAttribute("kunde") Kunde kunde){
         // lagrer Ansatt til databasen 
         kundeService.saveKunde(kunde);
