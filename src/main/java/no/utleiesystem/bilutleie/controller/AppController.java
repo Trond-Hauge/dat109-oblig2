@@ -24,7 +24,6 @@ public class AppController {
 
     private Utleiekontor hentested;
     private Utleie utleie = new Utleie();
-
     
     @RequestMapping("/")
     public String getAlleUtleiekontor(ModelMap map){
@@ -42,7 +41,6 @@ public class AppController {
         if(this.utleie.validatePartOne()){
             return "redirect:/velg-bil";
         }
-
         return "redirect:/";
     }
 
@@ -57,7 +55,11 @@ public class AppController {
 
     @PostMapping("velg-bil")
     public String getVelgBil(@ModelAttribute("utleie") Utleie utleie){
+        //kobler objekt redigert av form med objektet det arbeides på
         this.utleie.setBil(utleie.getBil());
+        this.utleie.oppdaterPris();
+
+        //for å kontrollere at utforming går riktig for seg
         System.out.println("POST: \n" + this.utleie);
         return "redirect:/registrer";
     }
@@ -65,8 +67,7 @@ public class AppController {
     @GetMapping("/registrer")
     public String genererKunde(Model model){
         // bruker model for å binde form data
-        Kunde kunde = new Kunde();
-        model.addAttribute("kunde", kunde);
+        model.addAttribute("kunde", new Kunde());
         return "registrer";
     }
 
@@ -75,21 +76,18 @@ public class AppController {
         // lagrer Ansatt til databasen 
         try {
             kundeService.saveKunde(kunde);
-            //utleie.setKunde(kunde);
+            utleie.setKunde(kunde);
         } catch (Exception e) {
             return "redirect:/registrer";
         }
-        // Må endres redirect, slik at den viser til nettsiden 
+        utleie.getBil().setLedig(false);
         return "redirect:/kvittering";
     }
 
     @GetMapping(value="/kvittering")
-    public String visKvittering() {
+    public String visKvittering(Model model) {
+        model.addAttribute("utleie", this.utleie);
         return "kvittering";
     }
         
 }
-
-   
-    
-        

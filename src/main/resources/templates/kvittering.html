@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-    <title>Ansatt Management System</title>
+    <title>Kvittering</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
@@ -10,7 +10,17 @@
 <body>
     <div class="container">
         <h1>Kvittering</h1>
-        
+        <ul style="list-style-type:none;" th:object="${utleie}">
+            <li>Utleienummer: <p th:utext="${utleie.utleieID}"/></li>
+            <li>Dato for utleie: <p th:utext="${utleie.tidUtleie}"/></li>
+            <li>Antall leiedager: <p th:utext="${utleie.antallDager}"/></li>
+            <li>Pris for leie: <p th:utext="${utleie.pris}"/></li>
+            <li>Hentested: <p th:utext="${utleie.hentested}"/></li>
+            <li>Retursted: <p th:utext="${utleie.retursted}"/></li>
+            <li>Bil: <p th:utext="${utleie.bil}"/></li>
+            <li>Kundes navn: <p th:utext="${utleie.kunde.fornavn} + ' ' + ${utleie.kunde.etternavn}"/></li>
+            <li>Kundes telefonnummer : <p th:utext="${utleie.kunde.tlf}"/></li>
+          </ul>
     </div>
 </body>
 </html>

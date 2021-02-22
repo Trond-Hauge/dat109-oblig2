@@ -29,23 +29,42 @@ public class Utleie implements Serializable {
 
 	}
 
-	public boolean validatePartOne(){
-		if (hentested != null && retursted != null && tidUtleie != null && antallDager != 0){
+	/**
+	 * Validates the first part of the form
+	 * 
+	 * @return boolean true, if all values are acceptable
+	 */
+	public boolean validatePartOne() {
+		if (hentested != null && retursted != null && tidUtleie != null && antallDager != 0) {
 			return true;
 		}
 		return false;
 	}
 
+	public void oppdaterPris() {
+		if (bil != null) {
+			switch (bil.getUtleiegruppe()) {
+				case 'A':
+					pris = 600 * antallDager;
+					break;
+				case 'B':
+					pris = 1000 * antallDager;
+					break;
+				case 'C':
+					pris = 900 * antallDager;
+					break;
+				default:
+					pris = 900 * antallDager;
+					break;
+			}
+		}
+	}
+
 	@Override
 	public String toString() {
-		return "Utleie #" + utleieID +
-		"\nHentedato: " + tidUtleie +
-		"\nAntall leiedager : " + antallDager +
-		"\nBil: " + bil +
-		"\nHentested: " + hentested +
-		"\nRetursted: " + retursted +
-		"\nKunde: " + kunde +
-		"\nTotalpris: " + pris;
+		return "Utleie #" + utleieID + "\nHentedato: " + tidUtleie + "\nAntall leiedager : " + antallDager + "\nBil: "
+				+ bil + "\nHentested: " + hentested + "\nRetursted: " + retursted + "\nKunde: " + kunde
+				+ "\nTotalpris: " + pris;
 	}
 
 	public int getUtleieID() {
@@ -64,7 +83,6 @@ public class Utleie implements Serializable {
 		this.tidUtleie = tidUtleie;
 	}
 
-
 	public int getAntallDager() {
 		return this.antallDager;
 	}
@@ -72,7 +90,6 @@ public class Utleie implements Serializable {
 	public void setAntallDager(int antallDager) {
 		this.antallDager = antallDager;
 	}
-
 
 	public int getPris() {
 		return this.pris;
@@ -89,7 +106,6 @@ public class Utleie implements Serializable {
 	public void setKunde(Kunde kunde) {
 		this.kunde = kunde;
 	}
-
 
 	public int getKmUtleie() {
 		return this.kmUtleie;
