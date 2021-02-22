@@ -1,7 +1,7 @@
 DROP SCHEMA IF EXISTS bilutleie;
 CREATE SCHEMA bilutleie;
+DROP TABLE IF EXISTS utleie;
 DROP TABLE IF EXISTS bil;
-DROP TABLE IF EXISTS Kunde;
 DROP Table IF EXISTS kunde;
 DROP TABLE IF EXISTS utleiekontor;
 CREATE TABLE utleiekontor (
@@ -15,7 +15,7 @@ CREATE TABLE utleiekontor (
 CREATE TABLE bil (
         regnummer VARCHAR(7),
         merke VARCHAR(15),
-        modell VARCHAR (15),
+        modell VARCHAR (32),
         farge VARCHAR (15),
         ledig BOOLEAN,
         utleiegruppe CHAR (1),
@@ -25,7 +25,7 @@ CREATE TABLE bil (
         FOREIGN KEY (utleiekontor) REFERENCES utleiekontor(nummer)
 );
 CREATE TABLE kunde (
-        tlf CHAR (9),
+        tlf VARCHAR (15),
         fornavn VARCHAR (15),
         etternavn VARCHAR (15),
         kredittkort int,
@@ -38,4 +38,8 @@ INSERT INTO Utleiekontor VALUES
 
 INSERT INTO Bil VALUES
         ('BM19551', 'BMW', 'Isetta', 'Bavarian Blue', 'true', 'A', '10000', '1'),
-        ('FR19951', 'Ferrari', '456', 'Rosso Fiorano', 'true', 'C', '197000','1');
+        ('ME19571', 'Messerschmitt', 'KR200', 'Pastellgrün', 'true', 'A', '129381', '2'),
+        ('PE19621', 'Peel', 'P50', 'Capri Blue', 'true', 'A', '14533', '1'),
+        ('FR19951', 'Ferrari', '456', 'Rosso Fiorano', 'true', 'B', '197000','1'),
+        ('VW19641', 'Volkswagen', 'T1 Type2 Samba', 'Sea Blue', 'true', 'C', '172836', '1'),
+        ('VO19731', 'Volvo', 'P1800 ES', 'Cypress Green', 'true', 'D', '4890992', '2');

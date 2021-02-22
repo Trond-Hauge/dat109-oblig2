@@ -12,25 +12,35 @@
     <div class="container text-center">
         <h1>Absurd Bilutleie</h1>
     </div>
-    
+
     <div class="form-utleiesteder">
         <form th:action="@{/}" th:object="${utleie}" method="POST">
             <label>Hentested:
                 <select th:field="${utleie.hentested}">
-                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}"/>
+                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}"
+                        th:utext="${kontor.poststed}" />
                 </select>
             </label>
             <label>Retursted:
                 <select th:field="${utleie.retursted}">
-                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}"/>
+                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}"
+                        th:utext="${kontor.poststed}" />
                 </select>
             </label>
-            <button type="submit">Bekreft</button>
+            <button type="submit">Velg</button>
         </form>
         <form th:field="utleie.bil" th:if="${biler != null}">
             <!--Fiks det slik at man kun kan velge én -- Se også på å få dette i en tabell-->
-            <div th:each="bil : ${biler}"><input type="radio"><label th:text="${bil.toString()}"></label></div>
+            <div th:each="bil : ${biler}">
+                <input type="radio" th:value="${bil.regnummer}" name="${bil.toString()}" onclick="this.form.submit();">
+                <label th:text="${bil.toString()}"></label>
+            </div>
         </form>
+        <form action="/action_page.php">
+            <label for="birthday">Starttado:</label>
+            <input type="date" id="birthday" name="birthday">
+            <input type="submit">
+          </form>
     </div>
 
 </body>

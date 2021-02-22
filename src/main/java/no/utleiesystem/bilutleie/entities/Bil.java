@@ -49,12 +49,11 @@ public class Bil {
         return merke + " " + modell;
     }
 
-
-    public String getRegNummer() {
+    public String getRegnummer() {
         return this.regnummer;
     }
 
-    public void setRegNummer(String regNummer) {
+    public void setRegnummer(String regNummer) {
         this.regnummer = regNummer;
     }
 

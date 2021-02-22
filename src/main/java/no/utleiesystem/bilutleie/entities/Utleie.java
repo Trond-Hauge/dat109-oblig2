@@ -35,7 +35,12 @@ public class Utleie implements Serializable {
 
 	@Override
 	public String toString() {
-		return null; // Må finne ut hva som skal skrives ut!!!
+		return "Utleie #" + utleieID +
+		"\nHentedato: " + tidUtleie +
+		"\nReturdato: " + tidRetur +
+		"\nBil: " + bil +
+		"\nHentested: " + hentested +
+		"\nRetursted: " + retursted;
 	}
 
 	public int getUtleieID() {

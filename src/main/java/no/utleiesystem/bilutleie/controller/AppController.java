@@ -36,6 +36,7 @@ public class AppController {
     @PostMapping("/")
     public String getAlleUtleiekontor(@ModelAttribute("utleie") Utleie utleie){
         hentested = utleie.getHentested();
+        System.out.println(utleie);
         return "redirect:/";
     }
 
