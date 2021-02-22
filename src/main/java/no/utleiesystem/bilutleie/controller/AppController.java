@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import no.utleiesystem.bilutleie.entities.*;
 import no.utleiesystem.bilutleie.services.*;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class AppController {
@@ -27,7 +29,7 @@ public class AppController {
 
     
     @RequestMapping("/")
-    public String getAlleUtleiekontor(ModelMap map){
+    public String getAlleUtleiekontor(ModelMap map, Utleie utleie){
         map.addAttribute("utleie", new Utleie());
         map.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
         map.addAttribute("biler", bilService.hentBilerEtterUtleiekontor(hentested));
@@ -52,14 +54,22 @@ public class AppController {
 
     @PostMapping("/lagre-kunde")
     public String genererKunde(@ModelAttribute("kunde") Kunde kunde){
-        
-        //utleie.setKunde(kunde);
         // lagrer Ansatt til databasen 
-        kundeService.saveKunde(kunde);
+        try {
+            kundeService.saveKunde(kunde);
+            //utleie.setKunde(kunde);
+        } catch (Exception e) {
+            return "redirect:/registrer";
+        }
         // Må endres redirect, slik at den viser til nettsiden 
-        return "kvittering";
-
+        return "redirect:/kvittering";
     }
+
+    @GetMapping(value="/kvittering")
+    public String visKvittering() {
+        return "kvittering";
+    }
+    
     
     }
 
