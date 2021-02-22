@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Utleiekontor {
     
     @Id
+    @Column(name="nummer", nullable=false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nummer;
     private String gateadresse;

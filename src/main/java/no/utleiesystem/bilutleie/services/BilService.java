@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 
 import no.utleiesystem.bilutleie.repositories.BilRepo;
 import no.utleiesystem.bilutleie.entities.Bil;
+import no.utleiesystem.bilutleie.entities.Utleiekontor;
 
 @Service
-public class BilRepoService {
+public class BilService {
 
     @Autowired
     private BilRepo bilRepo;
@@ -18,6 +19,12 @@ public class BilRepoService {
     public List<Bil> hentAlleBiler(){
         List<Bil> liste = new ArrayList<>();
         bilRepo.findAll().forEach(liste::add);
+        return liste;
+    }
+
+    public List<Bil> hentBilerEtterUtleiekontor(Utleiekontor utleiekontor){
+        List<Bil> liste = new ArrayList<>();
+        bilRepo.findAllByUtleiekontor(utleiekontor).forEach(liste::add);
         return liste;
     }
 

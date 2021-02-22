@@ -3,12 +3,13 @@ package no.utleiesystem.bilutleie.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import no.utleiesystem.bilutleie.entities.Kunde;
+import no.utleiesystem.bilutleie.entities.*;
 import no.utleiesystem.bilutleie.services.*;
 
 @Controller
@@ -16,14 +17,24 @@ public class AppController {
 
     @Autowired
     private KundeService kundeService;
- 
     @Autowired
     private UtleiekontorService uService;
+    @Autowired
+    private BilService bilService;
 
-    @RequestMapping("/")
-    public String getAlleUtleiekontor(Model model){
-        model.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
+    @GetMapping("/")
+    public String getAlleUtleiekontor(ModelMap map){
+        Utleie utleie = new Utleie();
+        map.addAttribute("utleie", utleie);
+        map.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
         return "index";
+    }
+
+    @PostMapping("/")
+    public String getAlleUtleiekontor(@ModelAttribute("utleie") Utleie utleie){
+        //For kontroll av hva som skjer under testing
+        System.out.println(bilService.hentBilerEtterUtleiekontor(utleie.getHentested()));
+        return "redirect:/";
     }
 
     //login

@@ -13,7 +13,7 @@ CREATE TABLE utleiekontor (
         PRIMARY KEY (nummer)
 );
 CREATE TABLE bil (
-        regNummer VARCHAR(7),
+        regnummer VARCHAR(7),
         merke VARCHAR(15),
         modell VARCHAR (15),
         farge VARCHAR (15),
@@ -21,7 +21,7 @@ CREATE TABLE bil (
         utleiegruppe CHAR (1),
         kilometerstand INTEGER,
         utleiekontor INTEGER,
-        PRIMARY KEY (regNummer),
+        PRIMARY KEY (regnummer),
         FOREIGN KEY (utleiekontor) REFERENCES utleiekontor(nummer)
 );
 CREATE TABLE kunde (

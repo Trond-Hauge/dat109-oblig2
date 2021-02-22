@@ -12,12 +12,25 @@
     <div class="container text-center">
         <h1>Absurde Biler</h1>
     </div>
-    <div class="form-utleiekontor">
-        <select th:field="*{alleKontor}">
-            <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}" />
-        </select>
-
-        <!-- Når denne endres, må det gjøres en redirect til seg selv, der bilutvalget oppdateres, og hentested beholdes. -->
+    
+    <div class="form-utleiesteder">
+        <form th:action="@{/}" th:object="${utleie}" method="POST">
+            <label>Hentested:
+                <select th:field="${utleie.hentested}">
+                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}"/>
+                </select>
+            </label>
+            <label>Retursted:
+                <select th:field="${utleie.retursted}">
+                    <option th:each="kontor : ${alleKontor}" th:value="${kontor.nummer}" th:utext="${kontor.poststed}"/>
+                </select>
+            </label>
+            <button type="submit">Bekreft</button>
+        </form>
+        <!--
+        <form th:field="utleie.bil">
+            <div th:each=""><input type="radio"><label></label></div>
+        </form>-->
     </div>
 
 </body>

@@ -6,8 +6,11 @@ import java.util.List;
 
 
 import no.utleiesystem.bilutleie.entities.Bil;
+import no.utleiesystem.bilutleie.entities.Utleiekontor;
 
 public interface BilRepo extends CrudRepository<Bil, String> {
+
+    List<Bil> findAllByUtleiekontor(Utleiekontor utleiekontor);
 
     //@Query("SELECT * FROM Bil b WHERE b.utleiegruppe = ?1" )
     //List<Bil> finnBilerEtterGruppe(char utleiegruppe);
