@@ -21,6 +21,8 @@ public class AppController {
     private UtleiekontorService uService;
     @Autowired
     private BilService bilService;
+    @Autowired
+    private UtleieService utleieService;
 
     private Utleiekontor hentested;
     private Utleie utleie = new Utleie();
@@ -81,6 +83,13 @@ public class AppController {
             return "redirect:/registrer";
         }
         utleie.getBil().setLedig(false);
+
+        try {
+            utleieService.saveUtleie(this.utleie);
+        } catch (Exception e) {
+            System.out.println("Utleie ble ikke lagret.");
+        }
+
         return "redirect:/kvittering";
     }
 

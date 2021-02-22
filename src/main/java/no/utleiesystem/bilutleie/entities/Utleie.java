@@ -8,21 +8,30 @@ public class Utleie implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="utleieid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int utleieID;
+	@Column(name="tidutleie")
 	private String tidUtleie;
+	@Column(name="antalldager")
 	private int antallDager;
 	private int pris;
+	@Column(name="kmutleie")
 	private int kmUtleie;
+	@Column(name="kmretur")
 	private int kmRetur;
 
 	@ManyToOne
+	@JoinColumn(name="bil", referencedColumnName="regnummer")
 	private Bil bil;
 	@ManyToOne
+	@JoinColumn(name="hentested", referencedColumnName="nummer")
 	private Utleiekontor hentested;
 	@ManyToOne
+	@JoinColumn(name="retursted", referencedColumnName="nummer")
 	private Utleiekontor retursted;
 	@ManyToOne
+	@JoinColumn(name="kunde", referencedColumnName="tlf")
 	private Kunde kunde;
 
 	public Utleie() {

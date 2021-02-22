@@ -33,6 +33,24 @@ CREATE TABLE kunde (
         PRIMARY KEY (tlf)
 );
 
+CREATE TABLE utleie (
+        utleieID INTEGER,
+        tidUtleie VARCHAR(16),
+        antallDager INTEGER,
+        pris INTEGER,
+        kmUtleie INTEGER,
+        kmRetur INTEGER,
+        bil VARCHAR(7),
+        hentested INTEGER,
+        retursted INTEGER,
+        kunde VARCHAR(15),
+        PRIMARY KEY(utleieID),
+        FOREIGN KEY(bil) REFERENCES bil (regnummer),
+        FOREIGN KEY(hentested) REFERENCES utleiekontor (nummer),
+        FOREIGN KEY(retursted) REFERENCES utleiekontor (nummer),
+        FOREIGN KEY(kunde) REFERENCES kunde (tlf)
+);
+
 INSERT INTO Utleiekontor VALUES
         ('1', 'Huttiheitaveien', '5052', 'Bergen', '19996661'),
         ('2', 'Skrullerudveien', '1189', 'Oslo', '22225555');
