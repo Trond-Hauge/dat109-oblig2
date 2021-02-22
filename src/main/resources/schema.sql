@@ -24,13 +24,7 @@ CREATE TABLE bil (
         PRIMARY KEY (regnummer),
         FOREIGN KEY (utleiekontor) REFERENCES utleiekontor(nummer)
 );
-CREATE TABLE kunde (
-        tlf CHAR (9),
-        fornavn VARCHAR (15),
-        etternavn VARCHAR (15),
-        kredittkort int,
-        PRIMARY KEY (tlf)
-);
+
 
 INSERT INTO Utleiekontor VALUES
         ('1', 'Huttiheitaveien', '5052', 'Bergen', '19996661'),
