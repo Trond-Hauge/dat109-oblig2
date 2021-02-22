@@ -33,6 +33,11 @@ public class Utleiekontor {
 
     }
 
+    @Override
+    public String toString(){
+        return poststed;
+    }
+
     public int getNummer() {
         return this.nummer;
     }

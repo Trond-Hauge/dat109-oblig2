@@ -26,14 +26,14 @@ public class KundeRepositoryTest {
     @Test
     public void testCreateUser(){
         Kunde kunde = new Kunde();
-        kunde.setTlf(92010984);
+        kunde.setTlf("92010984");
         kunde.setFornavn("Kåre");
         kunde.setEtternavn("Monsen");
     
 
        Kunde savedUser = kunrep.save(kunde);
 
-       Kunde exitUser = entityManager.find(Kunde.class, savedUser.getId());
+       Kunde exitUser = entityManager.find(Kunde.class, savedUser.getTlf());
 
        assertThat(exitUser.getFornavn()).isEqualTo(kunde.getFornavn());
        

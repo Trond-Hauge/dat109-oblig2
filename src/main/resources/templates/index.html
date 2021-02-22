@@ -29,8 +29,7 @@
             </label>
             <button type="submit">Velg</button>
         </form>
-        <form th:field="utleie.bil" th:if="${biler != null}">
-            <!--Fiks det slik at man kun kan velge én -- Se også på å få dette i en tabell-->
+        <form th:field="utleie.bil" th:if="${biler != null}" th:action="@{/}" method="POST">
             <div th:each="bil : ${biler}">
                 <input type="radio" th:value="${bil.regnummer}" name="${bil.toString()}" onclick="this.form.submit();">
                 <label th:text="${bil.toString()}"></label>

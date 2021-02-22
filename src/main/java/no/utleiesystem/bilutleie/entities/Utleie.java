@@ -25,7 +25,6 @@ public class Utleie implements Serializable {
 	@ManyToOne
 	private Utleiekontor retursted;
 
-	// many-to-one forbindelse til kunde
 	// @ManyToOne
 	// private Kunde kunde;
 

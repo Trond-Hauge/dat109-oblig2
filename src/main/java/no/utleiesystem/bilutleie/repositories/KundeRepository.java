@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import no.utleiesystem.bilutleie.entities.Kunde;
 
 @Repository
-public interface KundeRepository extends JpaRepository <Kunde,Long> {
+public interface KundeRepository extends JpaRepository <Kunde,String> {
     
 }
