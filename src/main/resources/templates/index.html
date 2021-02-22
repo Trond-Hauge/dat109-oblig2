@@ -27,19 +27,16 @@
                         th:utext="${kontor.poststed}" />
                 </select>
             </label>
+            <div>
+                <label for="starttado">Starttado:</label>
+                <input th:field="${utleie.tidUtleie}" type="date" id="starttado" name="starttado">
+            </div>
+            <div>
+                <label for="antDager">Antall leiedager:</label>
+                <input th:field="${utleie.antallDager}" type="number" id="antDager" name="antDager">
+            </div>
             <button type="submit">Velg</button>
         </form>
-        <form th:field="utleie.bil" th:if="${biler != null}" th:action="@{/}" method="POST">
-            <div th:each="bil : ${biler}">
-                <input type="radio" th:value="${bil.regnummer}" name="${bil.toString()}" onclick="this.form.submit();">
-                <label th:text="${bil.toString()}"></label>
-            </div>
-        </form>
-        <form action="/action_page.php">
-            <label for="birthday">Starttado:</label>
-            <input type="date" id="birthday" name="birthday">
-            <input type="submit">
-          </form>
     </div>
 
 </body>

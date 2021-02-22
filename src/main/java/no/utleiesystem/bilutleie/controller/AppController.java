@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import no.utleiesystem.bilutleie.entities.*;
 import no.utleiesystem.bilutleie.services.*;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class AppController {
@@ -25,23 +23,43 @@ public class AppController {
     private BilService bilService;
 
     private Utleiekontor hentested;
-    public Utleie utleie;
+    private Utleie utleie = new Utleie();
 
     
     @RequestMapping("/")
-    public String getAlleUtleiekontor(ModelMap map, Utleie utleie){
-        map.addAttribute("utleie", new Utleie());
+    public String getAlleUtleiekontor(ModelMap map){
+        map.addAttribute("utleie", this.utleie);
         map.addAttribute("alleKontor", uService.hentAlleUtleiekontor());
-        map.addAttribute("biler", bilService.hentBilerEtterUtleiekontor(hentested));
         return "index";
     }
 
     @PostMapping("/")
     public String getAlleUtleiekontor(@ModelAttribute("utleie") Utleie utleie){
-        hentested = utleie.getHentested();
-        System.out.println(utleie);
+        this.utleie = utleie;
+        this.hentested = utleie.getHentested();
+        System.out.println("POST: \n" + utleie);
+
+        if(this.utleie.validatePartOne()){
+            return "redirect:/velg-bil";
+        }
 
         return "redirect:/";
+    }
+
+    //Skulle gjerne gjort dette mer dynamisk enn å redirect'e til ulike templates, men det tok tid å lære Spring.
+
+    @GetMapping("velg-bil")
+    public String getVelgBil(ModelMap map){
+        map.addAttribute("utleie", new Utleie());
+        map.addAttribute("biler", bilService.hentBilerEtterUtleiekontor(this.hentested));
+        return "velg-bil";
+    }
+
+    @PostMapping("velg-bil")
+    public String getVelgBil(@ModelAttribute("utleie") Utleie utleie){
+        this.utleie.setBil(utleie.getBil());
+        System.out.println("POST: \n" + this.utleie);
+        return "redirect:/registrer";
     }
 
     @GetMapping("/registrer")
@@ -69,9 +87,8 @@ public class AppController {
     public String visKvittering() {
         return "kvittering";
     }
-    
-    
-    }
+        
+}
 
    
     

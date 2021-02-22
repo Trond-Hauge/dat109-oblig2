@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <link th:href="@{/styles/sitewide.css}" rel="stylesheet" />
+    <title>Welcome to CodeJava Home</title>
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1>Velg Bil</h1>
+    </div>
+
+    <div class="form-utleiesteder">
+        <form th:action="@{/velg-bil}" th:object="${utleie}" method="POST">
+            <div th:if="${biler != null}">
+                <div th:each="bil : ${biler}">
+                    <input th:field="${utleie.bil}" type="radio" th:value="${bil.regnummer}" name="regnummer">
+                    <label th:text="${bil.toString()}"></label>
+                </div>
+            </div>
+            <button type="submit">Velg</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,7 +1,6 @@
 package no.utleiesystem.bilutleie.entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 import javax.persistence.*;
 
 @Entity
@@ -11,35 +10,42 @@ public class Utleie implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int utleieID;
-	private Timestamp tidUtleie;
-	private Timestamp tidRetur;
+	private String tidUtleie;
+	private int antallDager;
+	private int pris;
 	private int kmUtleie;
 	private int kmRetur;
 
 	@ManyToOne
 	private Bil bil;
-
 	@ManyToOne
 	private Utleiekontor hentested;
-
 	@ManyToOne
 	private Utleiekontor retursted;
-
-	// @ManyToOne
-	// private Kunde kunde;
+	@ManyToOne
+	private Kunde kunde;
 
 	public Utleie() {
 
+	}
+
+	public boolean validatePartOne(){
+		if (hentested != null && retursted != null && tidUtleie != null && antallDager != 0){
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public String toString() {
 		return "Utleie #" + utleieID +
 		"\nHentedato: " + tidUtleie +
-		"\nReturdato: " + tidRetur +
+		"\nAntall leiedager : " + antallDager +
 		"\nBil: " + bil +
 		"\nHentested: " + hentested +
-		"\nRetursted: " + retursted;
+		"\nRetursted: " + retursted +
+		"\nKunde: " + kunde +
+		"\nTotalpris: " + pris;
 	}
 
 	public int getUtleieID() {
@@ -50,21 +56,40 @@ public class Utleie implements Serializable {
 		this.utleieID = utleieID;
 	}
 
-	public Timestamp getTidUtleie() {
+	public String getTidUtleie() {
 		return this.tidUtleie;
 	}
 
-	public void setTidUtleie(Timestamp tidUtleie) {
+	public void setTidUtleie(String tidUtleie) {
 		this.tidUtleie = tidUtleie;
 	}
 
-	public Timestamp getTidRetur() {
-		return this.tidRetur;
+
+	public int getAntallDager() {
+		return this.antallDager;
 	}
 
-	public void setTidRetur(Timestamp tidRetur) {
-		this.tidRetur = tidRetur;
+	public void setAntallDager(int antallDager) {
+		this.antallDager = antallDager;
 	}
+
+
+	public int getPris() {
+		return this.pris;
+	}
+
+	public void setPris(int pris) {
+		this.pris = pris;
+	}
+
+	public Kunde getKunde() {
+		return this.kunde;
+	}
+
+	public void setKunde(Kunde kunde) {
+		this.kunde = kunde;
+	}
+
 
 	public int getKmUtleie() {
 		return this.kmUtleie;

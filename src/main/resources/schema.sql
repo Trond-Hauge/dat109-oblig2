@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS utleie;
 DROP TABLE IF EXISTS bil;
 DROP Table IF EXISTS kunde;
 DROP TABLE IF EXISTS utleiekontor;
+
 CREATE TABLE utleiekontor (
         nummer INTEGER,
         gateadresse VARCHAR (32),
