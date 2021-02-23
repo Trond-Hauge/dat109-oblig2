@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import no.utleiesystem.bilutleie.entities.Utleie;
 
-public interface UtleieRepository extends CrudRepository<Utleie, Integer> {
+public interface UtleieRepository extends CrudRepository<Utleie, Long> {
     
 }

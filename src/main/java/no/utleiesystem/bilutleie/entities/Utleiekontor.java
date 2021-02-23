@@ -1,14 +1,17 @@
 package no.utleiesystem.bilutleie.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
-public class Utleiekontor {
+public class Utleiekontor implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     @Id
     @Column(name="nummer", nullable=false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int nummer;
+    private Long nummer;
     private String gateadresse;
     private int postnummer; //kan vurderes å gjøres til String
     private String poststed;
@@ -38,11 +41,11 @@ public class Utleiekontor {
         return poststed;
     }
 
-    public int getNummer() {
+    public Long getNummer() {
         return this.nummer;
     }
 
-    public void setNummer(int nummer) {
+    public void setNummer(Long nummer) {
         this.nummer = nummer;
     }
 

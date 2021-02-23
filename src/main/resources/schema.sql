@@ -6,7 +6,7 @@ DROP Table IF EXISTS kunde;
 DROP TABLE IF EXISTS utleiekontor;
 
 CREATE TABLE utleiekontor (
-        nummer INTEGER,
+        nummer SERIAL,
         gateadresse VARCHAR (32),
         postnummer INTEGER,
         poststed VARCHAR (15),
@@ -34,7 +34,7 @@ CREATE TABLE kunde (
 );
 
 CREATE TABLE utleie (
-        utleieID INTEGER,
+        utleieID SERIAL,
         tidUtleie VARCHAR(16),
         antallDager INTEGER,
         pris INTEGER,

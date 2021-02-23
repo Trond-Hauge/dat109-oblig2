@@ -10,7 +10,7 @@ public class Utleie implements Serializable {
 	@Id
 	@Column(name="utleieid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int utleieID;
+	private Long utleieID;
 	@Column(name="tidutleie")
 	private String tidUtleie;
 	@Column(name="antalldager")
@@ -76,11 +76,11 @@ public class Utleie implements Serializable {
 				+ "\nTotalpris: " + pris;
 	}
 
-	public int getUtleieID() {
+	public Long getUtleieID() {
 		return this.utleieID;
 	}
 
-	public void setUtleieID(int utleieID) {
+	public void setUtleieID(Long utleieID) {
 		this.utleieID = utleieID;
 	}
 
